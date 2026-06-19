@@ -1,36 +1,295 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Next-Gen Learning Dashboard
 
-## Getting Started
+A futuristic student dashboard built with **Next.js App Router**, **Supabase**, **Tailwind CSS**, and **Framer Motion**.
 
-First, run the development server:
+This project was created as part of a Frontend Intern Challenge focused on modern UI architecture, server-rendered data fetching, responsive design, and high-performance animations.
+
+---
+
+## 🔗 Live Demo
+
+Vercel Deployment:
+
+```txt
+https://your-vercel-url.vercel.app
+```
+
+---
+
+## 📸 Preview
+
+Add screenshots here after deployment.
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+
+### Backend
+
+- Supabase PostgreSQL
+- Supabase Server Client
+
+### Deployment
+
+- Vercel
+
+---
+
+## ✨ Features
+
+### 🎨 Modern Bento Dashboard
+
+- Dark futuristic UI
+- Bento Grid layout
+- Gradient/glow effects
+- Responsive design
+
+### 📚 Dynamic Course Management
+
+Courses are fetched from Supabase.
+
+Each course contains:
+
+- Dynamic Icon
+- Course Title
+- Animated Progress Bar
+- Completion Percentage
+
+### ⚡ Framer Motion Animations
+
+Implemented interactions include:
+
+- Staggered tile loading
+- Hover elevation effects
+- Spring-based transitions
+- Active navigation indicator
+- Animated progress bars
+- Mobile navigation interactions
+
+### 📱 Fully Responsive
+
+#### Desktop (>1024px)
+
+- Sticky sidebar
+- Multi-column Bento layout
+
+#### Tablet (768px - 1024px)
+
+- Compact sidebar
+- Two-column grid
+
+#### Mobile (<768px)
+
+- Bottom navigation
+- Single-column layout
+
+---
+
+## 🗄 Database Schema
+
+### courses
+
+| Column      | Type      |
+|------------|-----------|
+| id         | uuid      |
+| title      | text      |
+| progress   | integer   |
+| icon_name  | text      |
+| created_at | timestamp |
+
+Example records:
+
+```sql
+INSERT INTO courses (title, progress, icon_name)
+VALUES
+('Advanced React Patterns', 75, 'Code2'),
+('Database Fundamentals', 60, 'Database'),
+('System Design Basics', 45, 'Layers'),
+('AI Product Engineering', 90, 'Sparkles');
+```
+
+---
+
+## 🏗 Architecture
+
+### Server Components
+
+The dashboard page uses a Next.js Server Component to fetch course data directly from Supabase.
+
+Benefits:
+
+- Faster initial render
+- Reduced client-side JavaScript
+- Secure database access
+- Better performance
+
+### Client Components
+
+Interactive UI components are isolated into client components:
+
+- Sidebar
+- MobileNav
+- HeroTile
+- CourseCard
+- ActivityTile
+- SettingsTile
+- ProgressBar
+
+This separation keeps the application performant while still enabling rich animations.
+
+---
+
+## 🎬 Animation Strategy
+
+To prevent layout shifts and ensure smooth interactions:
+
+- Transform-based animations
+- Opacity transitions
+- Framer Motion spring physics
+- Hardware-accelerated hover effects
+
+Example configuration:
+
+```ts
+transition={{
+  type: "spring",
+  stiffness: 300,
+  damping: 20,
+}}
+```
+
+---
+
+## 📂 Project Structure
+
+```txt
+src/
+│
+├── app/
+│   ├── page.tsx
+│   ├── loading.tsx
+│   └── error.tsx
+│
+├── components/
+│   ├── dashboard/
+│   ├── layout/
+│   └── ui/
+│
+├── context/
+│   └── DashboardContext.tsx
+│
+├── lib/
+│   └── supabase/
+│
+├── motion/
+│   ├── MotionProvider.tsx
+│   └── variants.ts
+│
+└── types/
+```
+
+---
+
+## ⚙ Environment Variables
+
+Create:
+
+```env
+.env.local
+```
+
+Add:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+```
+
+---
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/student-dashboard.git
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Deployment
 
-To learn more about Next.js, take a look at the following resources:
+The application is deployed using Vercel.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Connect GitHub repository
+2. Import project into Vercel
+3. Add Supabase environment variables
+4. Deploy
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧠 Challenges & Solutions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Challenge 1
+
+Maintaining smooth navigation between dashboard sections while keeping the sidebar and mobile navigation synchronized.
+
+### Solution
+
+Implemented a shared Dashboard Context to manage active navigation state across devices.
+
+---
+
+### Challenge 2
+
+Creating interactive animations without causing layout shifts.
+
+### Solution
+
+Used Framer Motion transforms and spring-based transitions instead of modifying layout properties.
+
+---
+
+### Challenge 3
+
+Keeping data fetching secure while maintaining a fast initial render.
+
+### Solution
+
+Used Next.js Server Components with Supabase server-side fetching.
+
+---
+
+## 👨‍💻 Author
+
+Shalini
+
+Frontend Intern Challenge Submission
