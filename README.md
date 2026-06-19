@@ -11,14 +11,24 @@ This project was created as part of a Frontend Intern Challenge focused on moder
 Vercel Deployment:
 
 ```txt
-https://your-vercel-url.vercel.app
+https://student-dashboard-khaki-ten.vercel.app/
 ```
 
 ---
 
-## 📸 Preview
+## 📸 Application Preview
 
-Add screenshots here after deployment.
+### Desktop
+
+![Desktop Dashboard](./public/screenshots/desktop.png)
+
+### Tablet
+
+![Tablet Dashboard](./public/screenshots/tablet.png)
+
+### Mobile
+
+![Mobile Dashboard](./public/screenshots/mobile.png)
 
 ---
 
@@ -181,19 +191,14 @@ src/
 ├── components/
 │   ├── dashboard/
 │   ├── layout/
+│   ├── motion/
 │   └── ui/
 │
 ├── context/
 │   └── DashboardContext.tsx
 │
-├── lib/
-│   └── supabase/
-│
-├── motion/
-│   ├── MotionProvider.tsx
-│   └── variants.ts
-│
-└── types/
+└── lib/
+    └── supabase/
 ```
 
 ---
@@ -220,7 +225,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/student-dashboard.git
+git clone https://github.com/shalini02693/student-dashboard.git
 ```
 
 Install dependencies:
@@ -290,6 +295,6 @@ Used Next.js Server Components with Supabase server-side fetching.
 
 ## 👨‍💻 Author
 
-Shalini
+Shalini Verma
 
 Frontend Intern Challenge Submission
